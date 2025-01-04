@@ -3,10 +3,11 @@ package handler
 import (
 	"fmt"
 	"net/http"
-	middleware "api/middleware"
+	"api/middleware"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprint(w, "Hello, World!")
+	middleware.LoggingMiddleware(http.HandlerFunc(handler)).ServeHTTP(w, r)
+
+	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 }
