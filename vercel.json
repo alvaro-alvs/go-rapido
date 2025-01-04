@@ -4,6 +4,10 @@
     {
       "src": "/api/index.go",
       "use": "@vercel/go"
+    },
+    {
+      "src": "/(.*)",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
