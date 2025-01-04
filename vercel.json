@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/v1/": {
-      "runtime": "vercel@golang"
-    }
-  }
-}
