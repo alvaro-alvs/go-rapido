@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
 	"go-rapido/api/middleware"
 )
@@ -18,6 +19,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	if (r.Method != "GET") {
 		w.WriteHeader(http.StatusMethodNotAllowed)
+	} else {
+		fmt.println("Olá, Visitante")
 	}
 
 	middleware.LoggingMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {})).ServeHTTP(w, r)
