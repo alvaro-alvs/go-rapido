@@ -12,15 +12,15 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 
 
-	if path == "" || path == "/" {
-		path = "/index.html"
-	}
-
 	if (r.Method != "GET") {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 	} else {
 		http.ServeFile(w, r, path)
 	}
 	
-	middleware.LoggingMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {})).ServeHTTP(w, r)
+	middleware.LoggingMiddleware(
+		http.HandlerFunc(
+			func(w http.ResponseWriter, r *http.Request) {})
+	)
+	.ServeHTTP(w, r)
 }
