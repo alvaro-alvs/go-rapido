@@ -16,7 +16,11 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	if path == "" || path == "/" {
 		path = "/index.html"
 	}
-	
+
+	if (r.Method == "POST") {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+	}
+
 	middleware.LoggingMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {})).ServeHTTP(w, r)
 
 	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
