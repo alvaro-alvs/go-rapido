@@ -17,11 +17,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		path = "/index.html"
 	}
 
-	if (r.Method == "POST") {
+	if (r.Method != "GET") {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 	}
 
 	middleware.LoggingMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {})).ServeHTTP(w, r)
-
-	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 }
