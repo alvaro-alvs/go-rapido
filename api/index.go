@@ -20,8 +20,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	if (r.Method != "GET") {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 	} else {
-		fmt.println("Olá, Visitante")
+		http.ServeFile(w, r, path)
 	}
-
+	
 	middleware.LoggingMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {})).ServeHTTP(w, r)
 }
