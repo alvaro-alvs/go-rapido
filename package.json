@@ -1,0 +1,21 @@
+{
+  "name": "go-rapido",
+  "version": "1.0.0",
+  "description": "api rapida e tals",
+  "homepage": "https://github.com/alvaro-alvs/go-rapido#readme",
+  "bugs": {
+    "url": "https://github.com/alvaro-alvs/go-rapido/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvaro-alvs/go-rapido.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.ts",
+  "scripts": {
+    "air": "air ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
