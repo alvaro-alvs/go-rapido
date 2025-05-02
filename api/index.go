@@ -14,7 +14,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 	} else {
-		http.ServeFile(w, r, path)
+		http.
 	}
 
 	middleware.LoggingMiddleware(
